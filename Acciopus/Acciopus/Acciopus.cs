@@ -21,6 +21,8 @@ namespace Acciopus
     public partial class Acciopus : Form
     {
         nextPage next;
+        Point MoveLocation;
+        Boolean isUserMovingTab;
         public Acciopus()
         {
             InitializeComponent();
@@ -259,6 +261,33 @@ namespace Acciopus
         private void giris_button_Click(object sender, EventArgs e)
         {
             App.TryToLogin(email.Text,password.Text);
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left) {
+                isUserMovingTab = true;
+                MoveLocation.X = e.X;
+                MoveLocation.Y = e.Y;
+            }
+           
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(isUserMovingTab)
+            {
+                this.Location = new Point(this.Location.X + (e.X - MoveLocation.X),this.Location.Y+( e.Y - MoveLocation.Y));
+            }
+            
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                isUserMovingTab = false;
+            }
         }
     }
 }

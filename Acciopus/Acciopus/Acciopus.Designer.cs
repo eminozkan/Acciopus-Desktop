@@ -74,6 +74,7 @@ namespace Acciopus
             this.hakkinda_lbl = new System.Windows.Forms.Label();
             this.iletisim_lbl = new System.Windows.Forms.Label();
             this.giris_lbl = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.giris.SuspendLayout();
             this.kayit.SuspendLayout();
             this.anasayfa.SuspendLayout();
@@ -177,7 +178,7 @@ namespace Acciopus
             this.kayit.Controls.Add(this.label11);
             this.kayit.Controls.Add(this.label6);
             this.kayit.Controls.Add(this.label5);
-            this.kayit.Location = new System.Drawing.Point(987, 511);
+            this.kayit.Location = new System.Drawing.Point(984, 537);
             this.kayit.Name = "kayit";
             this.kayit.Size = new System.Drawing.Size(600, 500);
             this.kayit.TabIndex = 1;
@@ -554,14 +555,25 @@ namespace Acciopus
             this.giris_lbl.Text = "Giriş Yap / Üye Ol";
             this.giris_lbl.Click += new System.EventHandler(this.giris_lbl_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Location = new System.Drawing.Point(6, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1021, 38);
+            this.panel1.TabIndex = 12;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
+            this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
             // Acciopus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Acciopus.Properties.Resources.background_test1;
             this.ClientSize = new System.Drawing.Size(1024, 576);
-            this.Controls.Add(this.kayit);
             this.Controls.Add(this.giris);
+            this.Controls.Add(this.kayit);
             this.Controls.Add(this.giris_lbl);
             this.Controls.Add(this.iletisim_lbl);
             this.Controls.Add(this.hakkinda_lbl);
@@ -572,6 +584,7 @@ namespace Acciopus
             this.Controls.Add(this.hakkinda);
             this.Controls.Add(this.anasayfa);
             this.Controls.Add(this.activePanel);
+            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Acciopus";
@@ -638,6 +651,7 @@ namespace Acciopus
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
