@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Acciopus.User
 {
@@ -24,25 +25,15 @@ namespace Acciopus.User
                 reader = sqlCommand.ExecuteReader();
                 if (reader.Read())
                 {
-                    while (reader.Read())
-                    {
+                   
 
-                        t_mail = reader["kullanici_mail"].ToString();
-                        t_pass = reader["kullanici_parola"].ToString();
+                     t_mail = reader["kullanici_mail"].ToString();
+                     t_pass = reader["kullanici_parola"].ToString();
 
-                    }
-                    int User_ID = 0;
-
+                    
+        
                     if (t_pass == userpass)
-                    {
-
-                        reader = sqlCommand.ExecuteReader();
-                        while (reader.Read())
-                        {
-                            User_ID = Convert.ToInt32(reader["kullanici_id"]);
-
-                        }
-
+                    { 
 
                         return LoginStatements.Success;
                     }

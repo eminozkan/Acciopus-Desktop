@@ -228,13 +228,16 @@ namespace Acciopus
         {
             
             Boolean arePasswordsSame = parolatb.Text.Equals(parolatekrartb.Text) ? true : false;
-            MessageBox.Show(arePasswordsSame.ToString());
+        
             if (arePasswordsSame)
             {
                 User.User user = new User.User();
                 user.setName(isimtb.Text);
                 user.setSurname(soyisimtb.Text);
+                
                 user.setPassword(Encryption.Encryption.EncryptPassword(parolatb.Text));
+     
+                
                 user.setEmail(emailtb.Text);
                 user.setPhone(telefontb.Text);
                 user.setDateOfBirth(dateTimePicker1.Value);

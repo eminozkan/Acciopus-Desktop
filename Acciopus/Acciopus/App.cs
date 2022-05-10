@@ -12,10 +12,10 @@ namespace Acciopus
     {
         private static SqlConnection sqlConnection = new SqlConnection(Config.Configuration.getConnectionString());
 
-        public static void TryToLogin(String username,String Password)
+        public static void TryToLogin(String email,String Password)
         {
             SqlCommand sqlCommand = new SqlCommand("Select [kullanici_id],[kullanici_mail],[kullanici_parola] from Kullanici where kullanici_mail = @p1",sqlConnection);
-            sqlCommand.Parameters.AddWithValue("@p1", username);
+            sqlCommand.Parameters.AddWithValue("@p1", email);
             sqlConnection.Open();
             LoginStatements state = User.Login.SignIn(sqlCommand, Password);
 
@@ -41,7 +41,7 @@ namespace Acciopus
         {
             SqlCommand UserExist = new SqlCommand("Select [kullanici_mail] from Kullanici where kullanici_mail = @p1",sqlConnection);
             String email = us.getEmail();
-            MessageBox.Show(email);
+            RegisterStatements state = RegisterStatements.Fail;
             UserExist.Parameters.AddWithValue("@p1", email);
             sqlConnection.Open();
             Boolean isUserExist = false;
@@ -54,7 +54,16 @@ namespace Acciopus
             }
             else
             {
-                Registration.Registration.SignUp(us, sqlConnection);
+               state =  Registration.Registration.SignUp(us, sqlConnection);
+            }
+
+            if(state == RegisterStatements.Success)
+            {
+                MessageBox.Show("Kayıt Başarılı!");
+            }
+            else
+            {
+                MessageBox.Show("Hata!!");
             }
 
 

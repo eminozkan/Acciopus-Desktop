@@ -14,4 +14,10 @@ namespace Acciopus
         Fail
     }
 
+    enum RegisterStatements
+    {
+        Success,
+        Fail
+    }
+
 }
