@@ -1,0 +1,10 @@
+C:\Users\root\source\repos\Acciopus\Acciopus\bin\Debug\Acciopus.exe.config
+C:\Users\root\source\repos\Acciopus\Acciopus\bin\Debug\Acciopus.exe
+C:\Users\root\source\repos\Acciopus\Acciopus\bin\Debug\Acciopus.pdb
+C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.csproj.AssemblyReference.cache
+C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.Properties.Resources.resources
+C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.csproj.GenerateResource.cache
+C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.csproj.CoreCompileInputs.cache
+C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.exe
+C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.pdb
+C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.Acciopus.resources
