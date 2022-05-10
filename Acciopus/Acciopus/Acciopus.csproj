@@ -52,6 +52,7 @@
     <Compile Include="Acciopus.Designer.cs">
       <DependentUpon>Acciopus.cs</DependentUpon>
     </Compile>
+    <Compile Include="App.cs" />
     <Compile Include="Config\Configuration.cs" />
     <Compile Include="Config\Statements.cs" />
     <Compile Include="Encryption\Encryption.cs" />

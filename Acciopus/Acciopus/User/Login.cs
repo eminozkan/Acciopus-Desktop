@@ -12,10 +12,10 @@ namespace Acciopus.User
     {
         public static LoginStatements SignIn(SqlCommand sqlCommand,String userpass)
         {
-            
+
             try
             {
-              
+
                 SqlDataReader reader;
                 userpass = Encryption.Encryption.EncryptPassword(userpass);
 
@@ -57,12 +57,12 @@ namespace Acciopus.User
                 }
 
 
-            }
+                }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            return 0;
+            return LoginStatements.Fail;
         }
 
     }

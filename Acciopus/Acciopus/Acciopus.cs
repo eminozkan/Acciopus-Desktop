@@ -231,7 +231,7 @@ namespace Acciopus
 
         private void giris_button_Click(object sender, EventArgs e)
         {
-
+            App.TryToLogin(email.Text,password.Text);
         }
     }
 }

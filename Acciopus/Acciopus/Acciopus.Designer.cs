@@ -74,7 +74,6 @@ namespace Acciopus
             this.hakkinda_lbl = new System.Windows.Forms.Label();
             this.iletisim_lbl = new System.Windows.Forms.Label();
             this.giris_lbl = new System.Windows.Forms.Label();
-            this.activePanel.SuspendLayout();
             this.giris.SuspendLayout();
             this.kayit.SuspendLayout();
             this.anasayfa.SuspendLayout();
@@ -86,7 +85,6 @@ namespace Acciopus
             // 
             this.activePanel.BackColor = System.Drawing.Color.Transparent;
             this.activePanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.activePanel.Controls.Add(this.giris);
             this.activePanel.Location = new System.Drawing.Point(212, 60);
             this.activePanel.Name = "activePanel";
             this.activePanel.Size = new System.Drawing.Size(600, 500);
@@ -102,7 +100,7 @@ namespace Acciopus
             this.giris.Controls.Add(this.giris_button);
             this.giris.Controls.Add(this.password);
             this.giris.Controls.Add(this.email);
-            this.giris.Location = new System.Drawing.Point(186, 14);
+            this.giris.Location = new System.Drawing.Point(1006, 64);
             this.giris.Name = "giris";
             this.giris.Size = new System.Drawing.Size(600, 500);
             this.giris.TabIndex = 1;
@@ -558,6 +556,7 @@ namespace Acciopus
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Acciopus.Properties.Resources.background_test1;
             this.ClientSize = new System.Drawing.Size(1024, 576);
+            this.Controls.Add(this.giris);
             this.Controls.Add(this.kayit);
             this.Controls.Add(this.giris_lbl);
             this.Controls.Add(this.iletisim_lbl);
@@ -575,7 +574,6 @@ namespace Acciopus
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acciopus";
             this.Load += new System.EventHandler(this.Acciopus_Load);
-            this.activePanel.ResumeLayout(false);
             this.giris.ResumeLayout(false);
             this.giris.PerformLayout();
             this.kayit.ResumeLayout(false);

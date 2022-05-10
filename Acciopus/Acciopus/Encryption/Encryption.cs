@@ -11,9 +11,8 @@ namespace Acciopus.Encryption
     {
 
         public static String EncryptPassword(String Password)
-        {
-            Password =  SHA256Sifrele(MD5Sifrele(Password));
-            return Password;
+        { 
+            return SHA256Sifrele(MD5Sifrele(Password));
         }
         public static String MD5Sifrele(String SifrelenecekVeri)
         {

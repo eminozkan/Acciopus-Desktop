@@ -10,7 +10,8 @@ namespace Acciopus
     {
         Success,
         WrongPassword,
-        WrongEmail
+        WrongEmail,
+        Fail
     }
 
 }
