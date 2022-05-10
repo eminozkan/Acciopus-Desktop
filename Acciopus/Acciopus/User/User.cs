@@ -9,8 +9,7 @@ namespace Acciopus.User
     enum UserType
     {
         Worker,
-        Employer,
-        Admin
+        Employer
     }
     internal class User
     {
@@ -19,8 +18,6 @@ namespace Acciopus.User
         private String Password;
         private String Email;
         private String PhoneNumber;
-        private String SicilNo;
-        private String VergiNo;
         private DateTime DateOfBirth;
         private UserType Type;
 
@@ -31,8 +28,8 @@ namespace Acciopus.User
             this.Password = null;
             this.Email = null;
             this.PhoneNumber = null;
-            this.SicilNo = null;
-            this.VergiNo = null;
+
+
             this.DateOfBirth = new DateTime(1001, 1, 1);
             this.Type = UserType.Worker;
         }
@@ -62,33 +59,19 @@ namespace Acciopus.User
             this.PhoneNumber = Phone;
         }
 
-        public void setSicilNo(String SicilNo)
-        {
-            this.SicilNo = SicilNo;
-        }
-
-        public void setVergiNo(String VergiNo)
-        {
-            this.VergiNo = VergiNo;
-        }
 
         public void setDateOfBirth(DateTime db)
         {
             this.DateOfBirth = db;
         }
 
-        public void setTypetoWorker(UserType u) {
+        public void setTypetoWorker() {
             this.Type = UserType.Worker;
         }
 
-        public void setTypetoEmployer(UserType u)
+        public void setTypetoEmployer()
         {
             this.Type = UserType.Employer;
-        }
-
-        public void setTypetoAdmin(UserType u)
-        {
-            this.Type = UserType.Admin;
         }
 
         public String getName()
@@ -106,20 +89,17 @@ namespace Acciopus.User
             return Email;
         }
 
+        public String getPassword()
+        {
+            return Password;
+        }
+
         public String getPhoneNumber()
         {
             return PhoneNumber;
         }
 
-        public String getSicilNo()
-        {
-            return SicilNo;
-        }
 
-        public String getVergiNo()
-        {
-            return VergiNo;
-        }
 
         public DateTime getDateofBirth()
         {

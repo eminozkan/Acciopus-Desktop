@@ -29,7 +29,7 @@ namespace Acciopus
         private void Acciopus_Load(object sender, EventArgs e)
         {
             next = nextPage.Hakkinda;
-
+            tip.SelectedIndex = 0;
             anasayfa.Location = new Point(activePanel.Location.X, activePanel.Location.Y);
             hakkinda.Location = new Point(activePanel.Location.X, activePanel.Location.Y);
             iletisim.Location = new Point(activePanel.Location.X, activePanel.Location.Y);
@@ -226,7 +226,31 @@ namespace Acciopus
 
         private void kayitbutton_Click(object sender, EventArgs e)
         {
-
+            
+            Boolean arePasswordsSame = parolatb.Text.Equals(parolatekrartb.Text) ? true : false;
+            MessageBox.Show(arePasswordsSame.ToString());
+            if (arePasswordsSame)
+            {
+                User.User user = new User.User();
+                user.setName(isimtb.Text);
+                user.setSurname(soyisimtb.Text);
+                user.setPassword(Encryption.Encryption.EncryptPassword(parolatb.Text));
+                user.setEmail(emailtb.Text);
+                user.setPhone(telefontb.Text);
+                user.setDateOfBirth(dateTimePicker1.Value);
+                if(tip.SelectedIndex == 0)
+                {
+                    user.setTypetoWorker();
+                }else if(tip.SelectedIndex == 1)
+                {
+                    user.setTypetoEmployer();
+                }
+                App.SignUp(user);
+            }
+            else
+            {
+                MessageBox.Show("Parola Eşleşmiyor!");
+            }
         }
 
         private void giris_button_Click(object sender, EventArgs e)

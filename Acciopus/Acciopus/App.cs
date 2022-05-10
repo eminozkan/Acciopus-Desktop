@@ -37,6 +37,30 @@ namespace Acciopus
         }
 
 
+        public static void SignUp(User.User us)
+        {
+            SqlCommand UserExist = new SqlCommand("Select [kullanici_mail] from Kullanici where kullanici_mail = @p1",sqlConnection);
+            String email = us.getEmail();
+            MessageBox.Show(email);
+            UserExist.Parameters.AddWithValue("@p1", email);
+            sqlConnection.Open();
+            Boolean isUserExist = false;
+            isUserExist = Registration.Registration.isUserExist(UserExist);
+            sqlConnection.Close();
+            
+            if (isUserExist)
+            {
+                MessageBox.Show("Bu mail sistemde kayitlidir!");
+            }
+            else
+            {
+                Registration.Registration.SignUp(us, sqlConnection);
+            }
+
+
+        }
+
+
         
     }
 

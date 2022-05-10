@@ -177,7 +177,7 @@ namespace Acciopus
             this.kayit.Controls.Add(this.label11);
             this.kayit.Controls.Add(this.label6);
             this.kayit.Controls.Add(this.label5);
-            this.kayit.Location = new System.Drawing.Point(972, 451);
+            this.kayit.Location = new System.Drawing.Point(987, 511);
             this.kayit.Name = "kayit";
             this.kayit.Size = new System.Drawing.Size(600, 500);
             this.kayit.TabIndex = 1;
@@ -190,6 +190,7 @@ namespace Acciopus
             this.kayitbutton.TabIndex = 16;
             this.kayitbutton.Text = "Kayıt Ol";
             this.kayitbutton.UseVisualStyleBackColor = true;
+            this.kayitbutton.Click += new System.EventHandler(this.kayitbutton_Click);
             // 
             // telefontb
             // 
@@ -254,6 +255,9 @@ namespace Acciopus
             // tip
             // 
             this.tip.FormattingEnabled = true;
+            this.tip.Items.AddRange(new object[] {
+            "Çalışan",
+            "İşveren"});
             this.tip.Location = new System.Drawing.Point(275, 386);
             this.tip.Name = "tip";
             this.tip.Size = new System.Drawing.Size(121, 21);
@@ -556,8 +560,8 @@ namespace Acciopus
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Acciopus.Properties.Resources.background_test1;
             this.ClientSize = new System.Drawing.Size(1024, 576);
-            this.Controls.Add(this.giris);
             this.Controls.Add(this.kayit);
+            this.Controls.Add(this.giris);
             this.Controls.Add(this.giris_lbl);
             this.Controls.Add(this.iletisim_lbl);
             this.Controls.Add(this.hakkinda_lbl);
