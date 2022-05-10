@@ -34,6 +34,7 @@ namespace Acciopus
             hakkinda.Location = new Point(activePanel.Location.X, activePanel.Location.Y);
             iletisim.Location = new Point(activePanel.Location.X, activePanel.Location.Y);
             giris.Location = new Point(activePanel.Location.X, activePanel.Location.Y);
+            kayit.Location = new Point(activePanel.Location.X, activePanel.Location.Y);
             anasayfa.Visible = true;
             anasayfa.Enabled = true;
 
@@ -47,8 +48,12 @@ namespace Acciopus
 
             giris.Visible = false;
             giris.Enabled = false;
+
+            kayit.Visible = false;
+            kayit.Enabled = false;
           
         }
+
 
         private void close_Click(object sender, EventArgs e)
         {
@@ -100,18 +105,18 @@ namespace Acciopus
             timer1.Enabled = false;
             giris.Visible = false;
             giris.Enabled = false;
-            if (next == nextPage.Anasayfa)
-            {
-                iletisim.Visible = false;
-                iletisim.Enabled = false;
 
-            }
-            else if (next == nextPage.Iletisim)
-            {
-                hakkinda.Visible = false;
-                hakkinda.Enabled = false;
+            kayit.Visible = false;
+            kayit.Enabled = false;
 
-            }
+
+            iletisim.Visible = false;
+            iletisim.Enabled = false;
+
+            hakkinda.Visible = false;
+            hakkinda.Enabled = false;
+
+            
             anasayfa.Visible = true;
             anasayfa.Enabled = true;
 
@@ -122,22 +127,23 @@ namespace Acciopus
         {
 
             timer1.Enabled = false;
+
             giris.Visible = false;
             giris.Enabled = false;
-            if (next == nextPage.Anasayfa)
-            {
-                iletisim.Visible = false;
-                iletisim.Enabled = false;
+
+            iletisim.Visible = false;
+            iletisim.Enabled = false;
+
+            kayit.Visible = false;
+            kayit.Enabled = false;
+
+            iletisim.Visible = false;
+            iletisim.Enabled = false;
+
+            anasayfa.Visible = false;
+            anasayfa.Enabled = false;
 
 
-            }
-            else if (next == nextPage.Hakkinda)
-            {
-                anasayfa.Visible = false;
-                anasayfa.Enabled = false;
-
-
-            }
             hakkinda.Visible = true;
             hakkinda.Enabled = true;
 
@@ -149,29 +155,32 @@ namespace Acciopus
             timer1.Enabled = false;
             giris.Visible = false;
             giris.Enabled = false;
-            if (next == nextPage.Iletisim)
-            {
-                hakkinda.Visible = false;
-                hakkinda.Enabled = false;
 
-            }
-            else if (next == nextPage.Hakkinda)
-            {
-                anasayfa.Visible = false;
-                anasayfa.Enabled = false;
+            kayit.Visible = false;
+            kayit.Enabled = false;
 
-            }
+            iletisim.Visible = false;
+            iletisim.Enabled = false;
+
+            anasayfa.Visible = false;
+            anasayfa.Enabled = false;
+
+
+            hakkinda.Visible = false;
+            hakkinda.Enabled = false;
 
             iletisim.Visible = true;
             iletisim.Enabled = true;
-            next = nextPage.Anasayfa;
-        }
+
+    }
 
         private void giris_lbl_Click(object sender, EventArgs e)
         {
             timer1.Enabled = false;
-            giris.Visible = true;
-            giris.Enabled = true;
+
+            kayit.Visible = false;
+            kayit.Enabled = false;
+
 
             anasayfa.Visible = false;
             anasayfa.Enabled = false;
@@ -184,6 +193,44 @@ namespace Acciopus
             iletisim.Visible = false;
             iletisim.Enabled = false;
 
+            giris.Visible = true;
+            giris.Enabled = true;
+
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            timer1.Enabled = false;
+            giris.Visible = false;
+            giris.Enabled = false;
+            kayit.Visible = true;
+            kayit.Enabled = true;
+
+
+
+            anasayfa.Visible = false;
+            anasayfa.Enabled = false;
+
+
+            hakkinda.Visible = false;
+            hakkinda.Enabled = false;
+
+
+            iletisim.Visible = false;
+            iletisim.Enabled = false;
+
+            
+            
+        }
+
+        private void kayitbutton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void giris_button_Click(object sender, EventArgs e)
+        {
 
         }
     }
