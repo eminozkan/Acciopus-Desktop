@@ -35,7 +35,7 @@ namespace Acciopus.Session
             }
             sqlConnection.Close();
 
-            MessageBox.Show(ActiveSessionID.ToString());
+
 
 
         }

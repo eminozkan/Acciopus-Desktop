@@ -32,5 +32,12 @@ namespace Acciopus
         {
 
         }
+
+        private void logoff_Click(object sender, EventArgs e)
+        {
+            App.StopSession();
+            Application.Exit();
+
+        }
     }
 }

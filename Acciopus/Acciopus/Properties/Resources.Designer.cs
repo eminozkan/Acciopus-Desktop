@@ -73,9 +73,9 @@ namespace Acciopus.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
-        internal static System.Drawing.Bitmap kullanicibg {
+        internal static System.Drawing.Bitmap kullanicibg1 {
             get {
-                object obj = ResourceManager.GetObject("kullanicibg", resourceCulture);
+                object obj = ResourceManager.GetObject("kullanicibg1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
