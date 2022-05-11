@@ -8,3 +8,4 @@ C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.csproj.CoreCompi
 C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.exe
 C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.pdb
 C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.Acciopus.resources
+C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.Mainpanel.resources

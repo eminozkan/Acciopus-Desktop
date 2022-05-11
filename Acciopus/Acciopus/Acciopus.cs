@@ -260,7 +260,17 @@ namespace Acciopus
 
         private void giris_button_Click(object sender, EventArgs e)
         {
-            App.TryToLogin(email.Text,password.Text);
+            Boolean isUserSigned = App.TryToLogin(email.Text, password.Text);
+            if (isUserSigned)
+            {
+                Mainpanel panel = new Mainpanel();
+                panel.Show();
+                User.User usr = new User.User();
+                usr.setEmail(email.Text);
+                App.StartSession(usr);
+                this.Hide();
+
+            }
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

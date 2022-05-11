@@ -11,35 +11,40 @@ namespace Acciopus
     class App
     {
         private static SqlConnection sqlConnection = new SqlConnection(Config.Configuration.getConnectionString());
+        public static int ActiveSessionID;
 
-        public static void TryToLogin(String email,String Password)
+        public static Boolean TryToLogin(String email, String Password)
         {
-            SqlCommand sqlCommand = new SqlCommand("Select [kullanici_id],[kullanici_mail],[kullanici_parola] from Kullanici where kullanici_mail = @p1",sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand("Select [kullanici_id],[kullanici_mail],[kullanici_parola] from Kullanici where kullanici_mail = @p1", sqlConnection);
             sqlCommand.Parameters.AddWithValue("@p1", email);
             sqlConnection.Open();
             LoginStatements state = User.Login.SignIn(sqlCommand, Password);
 
-            if(state == LoginStatements.Success)
+            if (state == LoginStatements.Success)
             {
                 MessageBox.Show("Giris Basarili!");
+                sqlConnection.Close();
+                return true;
 
-            }else if(state == LoginStatements.WrongEmail)
+
+            } else if (state == LoginStatements.WrongEmail)
             {
                 MessageBox.Show("Kullanici Bulunamadi!");
-            }else if(state == LoginStatements.WrongPassword)
+            } else if (state == LoginStatements.WrongPassword)
             {
                 MessageBox.Show("Hatali Parola!");
             }
 
             sqlConnection.Close();
+            return false;
 
-        
+
         }
 
 
         public static void SignUp(User.User us)
         {
-            SqlCommand UserExist = new SqlCommand("Select [kullanici_mail] from Kullanici where kullanici_mail = @p1",sqlConnection);
+            SqlCommand UserExist = new SqlCommand("Select [kullanici_mail] from Kullanici where kullanici_mail = @p1", sqlConnection);
             String email = us.getEmail();
             RegisterStatements state = RegisterStatements.Fail;
             UserExist.Parameters.AddWithValue("@p1", email);
@@ -47,17 +52,17 @@ namespace Acciopus
             Boolean isUserExist = false;
             isUserExist = Registration.Registration.isUserExist(UserExist);
             sqlConnection.Close();
-            
+
             if (isUserExist)
             {
                 MessageBox.Show("Bu mail sistemde kayitlidir!");
             }
             else
             {
-               state =  Registration.Registration.SignUp(us, sqlConnection);
+                state = Registration.Registration.SignUp(us, sqlConnection);
             }
 
-            if(state == RegisterStatements.Success)
+            if (state == RegisterStatements.Success)
             {
                 MessageBox.Show("Kayıt Başarılı!");
             }
@@ -69,10 +74,25 @@ namespace Acciopus
 
         }
 
+        public static void StartSession(User.User user)
+        {
+            Session.Session.StartSession(sqlConnection, user);
+            
+        }
+
+        public static void StopSession()
+        {
+            Session.Session.StopSession(sqlConnection);
+        }
+
+    }
+
+
+
 
         
     }
 
 
-}
+
 

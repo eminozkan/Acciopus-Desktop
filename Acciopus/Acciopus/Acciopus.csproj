@@ -56,13 +56,23 @@
     <Compile Include="Config\Configuration.cs" />
     <Compile Include="Config\Statements.cs" />
     <Compile Include="Encryption\Encryption.cs" />
+    <Compile Include="Mainpanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mainpanel.Designer.cs">
+      <DependentUpon>Mainpanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Session\Session.cs" />
     <Compile Include="User\Login.cs" />
     <Compile Include="User\Registration.cs" />
     <Compile Include="User\User.cs" />
     <EmbeddedResource Include="Acciopus.resx">
       <DependentUpon>Acciopus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mainpanel.resx">
+      <DependentUpon>Mainpanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,6 +105,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\signup1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kullanicibg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

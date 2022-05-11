@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ namespace Acciopus.User
     }
     internal class User
     {
+        private int ID;
         private String Name;
         private String Surname;
         private String Password;
@@ -110,6 +112,28 @@ namespace Acciopus.User
         {
             return Type;
         }
+        
 
+        public void setID(SqlConnection conn)
+        {
+            
+            SqlCommand getUserID = new SqlCommand("Select kullanici_id from Kullanici where kullanici_mail = @p1", conn);
+            getUserID.Parameters.AddWithValue("@p1", this.Email);
+            SqlDataReader reader;
+
+            conn.Open();
+            reader = getUserID.ExecuteReader();
+            while (reader.Read())
+            {
+                ID = Convert.ToInt32(reader["kullanici_id"]);
+            }
+
+            conn.Close();
+        }
+
+        public int getID()
+        {
+            return ID;
+        }
     }
 }

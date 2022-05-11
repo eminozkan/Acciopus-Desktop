@@ -73,6 +73,16 @@ namespace Acciopus.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap kullanicibg {
+            get {
+                object obj = ResourceManager.GetObject("kullanicibg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap login2 {
             get {
                 object obj = ResourceManager.GetObject("login2", resourceCulture);
@@ -86,6 +96,16 @@ namespace Acciopus.Properties {
         internal static System.Drawing.Bitmap signup1 {
             get {
                 object obj = ResourceManager.GetObject("signup1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap themecolor {
+            get {
+                object obj = ResourceManager.GetObject("themecolor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
