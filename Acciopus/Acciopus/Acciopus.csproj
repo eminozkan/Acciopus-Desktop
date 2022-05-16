@@ -112,5 +112,8 @@
   <ItemGroup>
     <None Include="Resources\kullanicibg1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1024px-Search_Icon.svg.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

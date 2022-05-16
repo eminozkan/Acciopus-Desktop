@@ -63,6 +63,16 @@ namespace Acciopus.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap _1024px_Search_Icon_svg {
+            get {
+                object obj = ResourceManager.GetObject("1024px-Search_Icon.svg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap background_test1 {
             get {
                 object obj = ResourceManager.GetObject("background_test1", resourceCulture);

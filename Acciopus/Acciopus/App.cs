@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -84,6 +85,19 @@ namespace Acciopus
         {
             Session.Session.StopSession(sqlConnection);
         }
+
+
+        public static void FillDataGrid(String Sql, String TableName, DataGridView DGV)
+        {
+            SqlDataAdapter adapter = new SqlDataAdapter(Sql, sqlConnection);
+            DataSet ds = new DataSet();
+            sqlConnection.Open();
+            adapter.Fill(ds, TableName);
+            DGV.DataSource = ds.Tables[TableName];
+            sqlConnection.Close();
+
+        }
+
 
     }
 

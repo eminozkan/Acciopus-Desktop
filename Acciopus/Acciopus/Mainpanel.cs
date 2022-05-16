@@ -25,7 +25,8 @@ namespace Acciopus
 
         private void Mainpanel_Load(object sender, EventArgs e)
         {
-            
+            String sqlCommand = "Select * from Kullanici";
+            App.FillDataGrid(sqlCommand, "Kullanici", dataGridView1);
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -35,9 +36,15 @@ namespace Acciopus
 
         private void logoff_Click(object sender, EventArgs e)
         {
-            App.StopSession();
-            Application.Exit();
+            DialogResult dialogResult = MessageBox.Show("Çıkış Yapmak İstediginize emin misiniz?", "Çıkış Yap!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                App.StopSession();
+                Application.Exit();
+            }
+           
 
         }
+
     }
 }

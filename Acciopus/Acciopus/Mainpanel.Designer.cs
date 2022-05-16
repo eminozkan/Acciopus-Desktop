@@ -31,13 +31,19 @@ namespace Acciopus
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Mainpanel));
             this.label1 = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabcontrol = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.logoff = new System.Windows.Forms.Panel();
-            this.tabControl1.SuspendLayout();
+            this.tabcontrol.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -48,30 +54,70 @@ namespace Acciopus
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 0;
             // 
-            // tabControl1
+            // tabcontrol
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(2, 74);
-            this.tabControl1.Multiline = true;
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1279, 649);
-            this.tabControl1.TabIndex = 1;
+            this.tabcontrol.Controls.Add(this.tabPage1);
+            this.tabcontrol.Controls.Add(this.tabPage2);
+            this.tabcontrol.Location = new System.Drawing.Point(2, 74);
+            this.tabcontrol.Multiline = true;
+            this.tabcontrol.Name = "tabcontrol";
+            this.tabcontrol.SelectedIndex = 0;
+            this.tabcontrol.Size = new System.Drawing.Size(1279, 649);
+            this.tabcontrol.TabIndex = 1;
             // 
             // tabPage1
             // 
             this.tabPage1.BackgroundImage = global::Acciopus.Properties.Resources.themecolor;
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tabPage1.Controls.Add(this.pictureBox1);
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1271, 623);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Başvurular";
+            this.tabPage1.Text = "İlanlar";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::Acciopus.Properties.Resources._1024px_Search_Icon_svg;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(1080, 7);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(29, 26);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1116, 10);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(134, 20);
+            this.textBox1.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1143, 578);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 37);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Başvuru Yap";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Salmon;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 38);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridView1.Size = new System.Drawing.Size(1271, 534);
+            this.dataGridView1.TabIndex = 1;
             // 
             // panel1
             // 
@@ -88,7 +134,7 @@ namespace Acciopus
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1271, 623);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "İlanlar";
+            this.tabPage2.Text = "Başvurularım";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // logoff
@@ -109,7 +155,7 @@ namespace Acciopus
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.ControlBox = false;
             this.Controls.Add(this.logoff);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabcontrol);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -117,8 +163,11 @@ namespace Acciopus
             this.Text = "Acciopus Uygulaması";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Mainpanel_FormClosed);
             this.Load += new System.EventHandler(this.Mainpanel_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tabcontrol.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,10 +176,14 @@ namespace Acciopus
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabcontrol;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel logoff;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
