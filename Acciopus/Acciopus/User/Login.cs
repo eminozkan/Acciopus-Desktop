@@ -9,7 +9,7 @@ using System.Windows.Forms;
 namespace Acciopus.User
 {
 
-    internal class Login
+    internal class Login : User
     {
         public static LoginStatements SignIn(SqlCommand sqlCommand,String userpass)
         {
@@ -50,10 +50,18 @@ namespace Acciopus.User
                 }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                SqlConnection sql = new SqlConnection(Config.Configuration.getConnectionString());
+                SqlCommand sendExceptiontoDatabase = new SqlCommand("Insert into Exception Exception_Message,Exception_DateTime values(@p1,@p2)", sql);
+                
+                sendExceptiontoDatabase.Parameters.AddWithValue("@p1", ex.Message.ToString());
+                sendExceptiontoDatabase.Parameters.AddWithValue("@p2", DateTime.Now);
+                sendExceptiontoDatabase.ExecuteNonQuery();
+                sql.Close();
             }
             return LoginStatements.Fail;
         }
+
+        
 
     }
 }

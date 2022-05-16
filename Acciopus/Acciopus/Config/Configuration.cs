@@ -13,7 +13,7 @@ namespace Acciopus.Config
         private static String ExeFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location;
         private static String AppFilePath = System.IO.Path.GetDirectoryName(ExeFilePath);
         private static String LogFilePath = AppFilePath + @"\log_file\log.txt";
-        private String Author = "Muhammet Emin Ozkan";
+        private static String Author = "Muhammet Emin Ozkan";
 
 
         public static String getAppName()
@@ -29,6 +29,11 @@ namespace Acciopus.Config
         public static String getLogFilePath()
         {
             return LogFilePath;
+        }
+
+        public static String getAuthorName()
+        {
+            return Author;
         }
     }
 }

@@ -23,6 +23,8 @@ namespace Acciopus
         nextPage next;
         Point MoveLocation;
         Boolean isUserMovingTab;
+        
+
         public Acciopus()
         {
             InitializeComponent();
@@ -53,10 +55,34 @@ namespace Acciopus
 
             kayit.Visible = false;
             kayit.Enabled = false;
+
+            label18.Text += Config.Configuration.getAuthorName();
           
         }
 
-        
+        public void setPanelToVisible(Panel p)
+        {
+            timer1.Enabled = false;
+            giris.Visible = false;
+            giris.Enabled = false;
+
+            kayit.Visible = false;
+            kayit.Enabled = false;
+
+
+            iletisim.Visible = false;
+            iletisim.Enabled = false;
+
+            hakkinda.Visible = false;
+            hakkinda.Enabled = false;
+
+
+            anasayfa.Visible = false;
+            anasayfa.Enabled = false;
+
+            p.Visible = true;
+            p.Enabled = true;
+        }
 
 
         private void close_Click(object sender, EventArgs e)
@@ -106,126 +132,28 @@ namespace Acciopus
 
         private void anasayfa_lbl_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
-            giris.Visible = false;
-            giris.Enabled = false;
-
-            kayit.Visible = false;
-            kayit.Enabled = false;
-
-
-            iletisim.Visible = false;
-            iletisim.Enabled = false;
-
-            hakkinda.Visible = false;
-            hakkinda.Enabled = false;
-
-            
-            anasayfa.Visible = true;
-            anasayfa.Enabled = true;
-
-            next = nextPage.Hakkinda;
+            setPanelToVisible(anasayfa);
         }
 
         private void hakkinda_lbl_Click(object sender, EventArgs e)
         {
-
-            timer1.Enabled = false;
-
-            giris.Visible = false;
-            giris.Enabled = false;
-
-            iletisim.Visible = false;
-            iletisim.Enabled = false;
-
-            kayit.Visible = false;
-            kayit.Enabled = false;
-
-            iletisim.Visible = false;
-            iletisim.Enabled = false;
-
-            anasayfa.Visible = false;
-            anasayfa.Enabled = false;
-
-
-            hakkinda.Visible = true;
-            hakkinda.Enabled = true;
-
-            next = nextPage.Iletisim;
+            setPanelToVisible(hakkinda);
         }
 
         private void iletisim_lbl_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = false;
-            giris.Visible = false;
-            giris.Enabled = false;
-
-            kayit.Visible = false;
-            kayit.Enabled = false;
-
-            iletisim.Visible = false;
-            iletisim.Enabled = false;
-
-            anasayfa.Visible = false;
-            anasayfa.Enabled = false;
-
-
-            hakkinda.Visible = false;
-            hakkinda.Enabled = false;
-
-            iletisim.Visible = true;
-            iletisim.Enabled = true;
-
-    }
-
-        private void giris_lbl_Click(object sender, EventArgs e)
-        {
-            timer1.Enabled = false;
-
-            kayit.Visible = false;
-            kayit.Enabled = false;
-
-
-            anasayfa.Visible = false;
-            anasayfa.Enabled = false;
-
-
-            hakkinda.Visible = false;
-            hakkinda.Enabled = false;
-
-
-            iletisim.Visible = false;
-            iletisim.Enabled = false;
-
-            giris.Visible = true;
-            giris.Enabled = true;
-
+            setPanelToVisible(iletisim);
 
         }
 
+        private void giris_lbl_Click(object sender, EventArgs e)
+        {
+            setPanelToVisible(giris);
+         }
+
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            timer1.Enabled = false;
-            giris.Visible = false;
-            giris.Enabled = false;
-            kayit.Visible = true;
-            kayit.Enabled = true;
-
-
-
-            anasayfa.Visible = false;
-            anasayfa.Enabled = false;
-
-
-            hakkinda.Visible = false;
-            hakkinda.Enabled = false;
-
-
-            iletisim.Visible = false;
-            iletisim.Enabled = false;
-
-            
-            
+            setPanelToVisible(kayit);
         }
 
         private void kayitbutton_Click(object sender, EventArgs e)
@@ -265,12 +193,34 @@ namespace Acciopus
             Boolean isUserSigned = App.TryToLogin(email.Text, password.Text);
             if (isUserSigned)
             {
-                Mainpanel panel = new Mainpanel();
-                panel.Show();
+                
                 User.User usr = new User.User();
                 usr.setEmail(email.Text);
+                
                 App.StartSession(usr);
-                this.Hide();
+                
+                
+                if(usr.getType() == User.UserType.SystemAdmin)
+                {
+                    MessageBox.Show(usr.getType().ToString() + " paneli!");
+                }
+                else if (usr.getType() == User.UserType.Admin)
+                {
+                    MessageBox.Show(usr.getType() + " paneli!");
+                }
+                else if(usr.getType() == User.UserType.Employer)
+                {
+                    MessageBox.Show(usr.getType() + " paneli!");
+                }
+                else if(usr.getType() == User.UserType.Worker)
+                {
+                    WorkerPanel panel = new WorkerPanel();
+                    panel.setUser(usr) ;
+                    panel.Show();
+                    this.Hide();
+                }
+                
+                
 
             }
         }

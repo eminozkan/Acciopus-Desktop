@@ -12,7 +12,7 @@ namespace Acciopus
     class App
     {
         private static SqlConnection sqlConnection = new SqlConnection(Config.Configuration.getConnectionString());
-        public static int ActiveSessionID;
+       
 
         public static Boolean TryToLogin(String email, String Password)
         {
@@ -77,7 +77,9 @@ namespace Acciopus
 
         public static void StartSession(User.User user)
         {
+            user.setUserInfo(sqlConnection);
             Session.Session.StartSession(sqlConnection, user);
+            
             
         }
 

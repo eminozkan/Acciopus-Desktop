@@ -75,6 +75,7 @@ namespace Acciopus
             this.iletisim_lbl = new System.Windows.Forms.Label();
             this.giris_lbl = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
             this.giris.SuspendLayout();
             this.kayit.SuspendLayout();
             this.anasayfa.SuspendLayout();
@@ -393,7 +394,7 @@ namespace Acciopus
             this.hakkinda.Controls.Add(this.label7);
             this.hakkinda.Controls.Add(this.label8);
             this.hakkinda.Controls.Add(this.label9);
-            this.hakkinda.Location = new System.Drawing.Point(632, 566);
+            this.hakkinda.Location = new System.Drawing.Point(633, 570);
             this.hakkinda.Name = "hakkinda";
             this.hakkinda.Size = new System.Drawing.Size(600, 500);
             this.hakkinda.TabIndex = 4;
@@ -566,12 +567,25 @@ namespace Acciopus
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label18.Location = new System.Drawing.Point(12, 537);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(58, 13);
+            this.label18.TabIndex = 13;
+            this.label18.Text = "@Author : ";
+            // 
             // Acciopus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Acciopus.Properties.Resources.background_test1;
             this.ClientSize = new System.Drawing.Size(1024, 576);
+            this.Controls.Add(this.hakkinda);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.giris);
             this.Controls.Add(this.kayit);
             this.Controls.Add(this.giris_lbl);
@@ -581,7 +595,6 @@ namespace Acciopus
             this.Controls.Add(this.minimize);
             this.Controls.Add(this.close);
             this.Controls.Add(this.iletisim);
-            this.Controls.Add(this.hakkinda);
             this.Controls.Add(this.anasayfa);
             this.Controls.Add(this.activePanel);
             this.Controls.Add(this.panel1);
@@ -652,6 +665,7 @@ namespace Acciopus
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label18;
     }
 }
 

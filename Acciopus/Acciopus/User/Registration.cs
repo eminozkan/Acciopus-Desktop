@@ -39,10 +39,10 @@ namespace Acciopus.Registration
             User.UserType type = us.getType();
             if (type == User.UserType.Employer)
             {
-                sendUserInfo.Parameters.AddWithValue("@p7", 2);
+                sendUserInfo.Parameters.AddWithValue("@p7", 4);
             }else if(type == User.UserType.Worker)
             {
-                sendUserInfo.Parameters.AddWithValue("@p7", 3);
+                sendUserInfo.Parameters.AddWithValue("@p7", 5);
 
             }
             sendUserInfo.Parameters.AddWithValue("@p8", DateTime.Now);

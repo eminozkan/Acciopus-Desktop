@@ -1,27 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Acciopus.User
 {
     enum UserType
     {
+        unassigned,
+        SystemAdmin,
+        Admin,
         Worker,
         Employer
     }
     internal class User
     {
-        private int ID;
-        private String Name;
-        private String Surname;
-        private String Password;
-        private String Email;
-        private String PhoneNumber;
-        private DateTime DateOfBirth;
-        private UserType Type;
+        protected int ID;
+        protected String Name;
+        protected String Surname;
+        protected String Password;
+        protected String Email;
+        protected String PhoneNumber;
+        protected DateTime DateOfBirth;
+        protected UserType Type;
 
         public User()
         {
@@ -114,22 +114,55 @@ namespace Acciopus.User
         }
         
 
-        public void setID(SqlConnection conn)
+        public void setUserInfo(SqlConnection conn)
         {
-            
-            SqlCommand getUserID = new SqlCommand("Select kullanici_id from Kullanici where kullanici_mail = @p1", conn);
-            getUserID.Parameters.AddWithValue("@p1", this.Email);
-            SqlDataReader reader;
-
-            conn.Open();
-            reader = getUserID.ExecuteReader();
-            while (reader.Read())
+            try
             {
-                ID = Convert.ToInt32(reader["kullanici_id"]);
-            }
+                SqlCommand getUserInfoFromEmail = new SqlCommand("Select kullanici_id, kullanici_adi,kullanici_soyadi,kullanici_telefon,kullanici_dogum_tarihi,kullanici_tip from Kullanici as t1 INNER JOIN Kullanici_Tip as t2 ON t1.kullanici_tip_id = t2.kullanici_tip_id where kullanici_mail = @p1", conn);
+                getUserInfoFromEmail.Parameters.AddWithValue("@p1", this.Email);
+                SqlDataReader reader;
+                String Type = "";
+                conn.Open();
+                reader = getUserInfoFromEmail.ExecuteReader();
+                while (reader.Read())
+                {
+                    ID = Convert.ToInt32(reader["kullanici_id"]);
+                    this.Name = reader["kullanici_adi"].ToString();
+                    this.Surname = reader["kullanici_soyadi"].ToString();
+                    this.PhoneNumber = reader["kullanici_telefon"].ToString();
+                    this.DateOfBirth = Convert.ToDateTime(reader["kullanici_dogum_tarihi"]);
+                    Type = reader["kullanici_tip"].ToString();
+                }
 
-            conn.Close();
+                conn.Close();
+                
+                if (Type.Equals("SystemAdmin"))
+                {
+                    this.Type = UserType.SystemAdmin;
+                }
+                else if (Type.Equals("Admin"))
+                {
+                    this.Type = UserType.Admin;
+                }
+                else if (Type.Equals("Employer"))
+                {
+                    this.Type = UserType.Employer;
+                }
+                else if (Type.Equals("Worker"))
+                {
+                    this.Type = UserType.Worker;
+                }
+            }catch(Exception e)
+            {
+                
+                SqlCommand sendExceptiontoDatabase = new SqlCommand("Insert into Exception (Exception_Message,Exception_DateTime) values(@p1,@p2)", conn);
+                sendExceptiontoDatabase.Parameters.AddWithValue("@p1", e.Message.ToString());
+                sendExceptiontoDatabase.Parameters.AddWithValue("@p2", DateTime.Now);
+                sendExceptiontoDatabase.ExecuteNonQuery();
+                conn.Close();
+            }
         }
+
 
         public int getID()
         {
