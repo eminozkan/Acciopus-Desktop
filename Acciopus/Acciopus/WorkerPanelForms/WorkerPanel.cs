@@ -13,6 +13,8 @@ namespace Acciopus.WorkerPanelForms
 {
     internal partial class WorkerPanel : Form
     {
+
+
         private User.User activeUser = new User.User();
         private Boolean isUserMovingTab = false;
         Point MoveLocation = new Point();
@@ -22,79 +24,6 @@ namespace Acciopus.WorkerPanelForms
             InitializeComponent();
             
         }
-
-        public void setUser(User.User usr)
-        {
-            activeUser = usr;
-        }
-
-
-        private void setDataGridView1Settings()
-        {
-            ArrayList d1ColumnsName = new ArrayList();
-            d1ColumnsName.Add("İlan ID");
-            d1ColumnsName.Add("Paylaşan ID");
-            d1ColumnsName.Add("İlan Başlığı");
-            d1ColumnsName.Add("Firma Adı");
-            d1ColumnsName.Add("Aranan Meslek");
-            d1ColumnsName.Add("Açıklama");
-            d1ColumnsName.Add("Teklif Edilen Maaş");
-            d1ColumnsName.Add("Aranan Tecrübe Süresi");
-            d1ColumnsName.Add("İlan Tarihi");
-
-            int index = 0;
-            foreach (String text in d1ColumnsName)
-            {
-                dataGridView1.Columns[index].HeaderText = text;
-                index++;
-            }
-
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].Visible = false;
-            dataGridView1.Columns[2].Width = 250;
-            dataGridView1.Columns[3].Width = 100;
-            dataGridView1.Columns[4].Width = 200;
-            dataGridView1.Columns[5].Width = 350;
-            dataGridView1.Columns[8].Width = 123;
-
-        }
-        
-
-        private void Mainpanel_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            App.StopSession();
-            Application.Exit();
-        }
-
-        private void Mainpanel_Load(object sender, EventArgs e)
-        {
-            
-  
-            App.FillDataGrid(dataGridView1SqlCommand, "Kullanici", dataGridView1);
-            setDataGridView1Settings();
-
-
-
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void logoff_Click(object sender, EventArgs e)
-        {
-            DialogResult dialogResult = MessageBox.Show("Çıkış Yapmak İstediginize emin misiniz?", "Çıkış Yap!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dialogResult == DialogResult.Yes)
-            {
-                App.StopSession();
-                Application.Exit();
-            }
-           
-
-        }
-
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -124,6 +53,51 @@ namespace Acciopus.WorkerPanelForms
             }
         }
 
+        private LogOffStatements AskUserToLogOff()
+        {
+            DialogResult dialogResult = MessageBox.Show("Çıkış Yapmak İstediginize emin misiniz?", "Çıkış Yap!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(dialogResult == DialogResult.Yes)
+            {
+                return LogOffStatements.UserWantsToQuit;
+            }
+            else
+            {
+                return LogOffStatements.UserDoesntWantToQuit;
+            }
+        }
+        public void setUser(User.User usr)
+        {
+            activeUser = usr;
+        }
+  
+
+        private void Mainpanel_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            App.StopSession();
+            Application.Exit();
+        }
+
+        private void Mainpanel_Load(object sender, EventArgs e)
+        {
+            App.FillDataGrid(dataGridView1SqlCommand, "Kullanici", dataGridView1);
+            DataGridViewFunctions.setDataGridView1Settings(dataGridView1);
+
+        }
+
+
+        private void logoff_Click(object sender, EventArgs e)
+        {
+            LogOffStatements state = AskUserToLogOff();
+            if (state == LogOffStatements.UserWantsToQuit)
+            {
+                App.StopSession();
+                Application.Exit();
+            }
+           
+
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentCell != null)
@@ -141,7 +115,10 @@ namespace Acciopus.WorkerPanelForms
             {
                 MessageBox.Show("Lütfen başvuru yapmak istediginiz ilanı seçiniz!");
             }
-            
+
         }
+
+
+
     }
 }

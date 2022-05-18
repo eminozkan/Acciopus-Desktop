@@ -26,4 +26,10 @@ namespace Acciopus
         Fail
     }
 
+    enum LogOffStatements
+    {
+        UserWantsToQuit,
+        UserDoesntWantToQuit
+    }
+
 }
