@@ -57,6 +57,7 @@
     <Compile Include="Config\Statements.cs" />
     <Compile Include="Encryption\Encryption.cs" />
     <Compile Include="User\Request.cs" />
+    <Compile Include="WorkerPanelForms\DataGridViewFunctions.cs" />
     <Compile Include="WorkerPanelForms\RequestJob.cs">
       <SubType>Form</SubType>
     </Compile>

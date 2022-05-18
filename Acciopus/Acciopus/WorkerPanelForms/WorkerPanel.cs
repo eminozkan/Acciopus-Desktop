@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Acciopus.WorkerPanelForms
         private User.User activeUser = new User.User();
         private Boolean isUserMovingTab = false;
         Point MoveLocation = new Point();
-        private String dataGridView1SqlCommand = "Select ilan_id,ilan_paylasan_id,ilan_baslik,ilan_firma_adi,meslek_adi,ilan_aciklama,ilan_teklif_edilen_maas,ilan_istenen_tecrube_suresi,ilan_tarihi from Is_ilan as t1 INNER JOIN Meslekler as t2 ON t1.ilan_aranan_meslek_id = t2.meslek_id";
+
         public WorkerPanel()
         {
             InitializeComponent();
@@ -68,6 +69,7 @@ namespace Acciopus.WorkerPanelForms
         public void setUser(User.User usr)
         {
             activeUser = usr;
+            
         }
   
 
@@ -79,9 +81,13 @@ namespace Acciopus.WorkerPanelForms
 
         private void Mainpanel_Load(object sender, EventArgs e)
         {
-            App.FillDataGrid(dataGridView1SqlCommand, "Kullanici", dataGridView1);
+            App.FillDataGrid(DataGridViewFunctions.getDataGrid1SqlString(), "Kullanici", dataGridView1);
             DataGridViewFunctions.setDataGridView1Settings(dataGridView1);
-
+            SqlCommand sql = DataGridViewFunctions.getDataGrid2SqlString();
+            sql.Parameters.AddWithValue("@p1", activeUser.getID());
+            App.FillDataGrid(DataGridViewFunctions.getDataGrid2SqlString(), "Basvuru", dataGridView2);
+            DataGridViewFunctions.setDataGridView2Settings(dataGridView2);
+            comboBox1.SelectedIndex = 0;
         }
 
 
@@ -117,8 +123,6 @@ namespace Acciopus.WorkerPanelForms
             }
 
         }
-
-
 
     }
 }

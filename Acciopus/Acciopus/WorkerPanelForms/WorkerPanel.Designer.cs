@@ -29,6 +29,7 @@ namespace Acciopus.WorkerPanelForms
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WorkerPanel));
             this.label1 = new System.Windows.Forms.Label();
             this.tabcontrol = new System.Windows.Forms.TabControl();
@@ -39,12 +40,16 @@ namespace Acciopus.WorkerPanelForms
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.logoff = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabcontrol.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +87,6 @@ namespace Acciopus.WorkerPanelForms
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "İlanlar";
             this.tabPage1.UseVisualStyleBackColor = true;
-
             // 
             // pictureBox1
             // 
@@ -113,11 +117,14 @@ namespace Acciopus.WorkerPanelForms
             // 
             // dataGridView1
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Salmon;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.GridColor = System.Drawing.Color.Salmon;
             this.dataGridView1.Location = new System.Drawing.Point(0, 38);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dataGridView1.Size = new System.Drawing.Size(1271, 534);
             this.dataGridView1.TabIndex = 1;
             // 
@@ -131,6 +138,8 @@ namespace Acciopus.WorkerPanelForms
             // tabPage2
             // 
             this.tabPage2.BackgroundImage = global::Acciopus.Properties.Resources.themecolor;
+            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.dataGridView2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -138,6 +147,15 @@ namespace Acciopus.WorkerPanelForms
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Başvurularım";
             this.tabPage2.UseVisualStyleBackColor = true;
+
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(20, 57);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(732, 490);
+            this.dataGridView2.TabIndex = 0;
             // 
             // logoff
             // 
@@ -159,6 +177,18 @@ namespace Acciopus.WorkerPanelForms
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Yapılacak İşlemi Seçiniz.",
+            "Başvuruyu Düzelt",
+            "Başvuruyu Sil"});
+            this.comboBox1.Location = new System.Drawing.Point(895, 57);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(151, 21);
+            this.comboBox1.TabIndex = 1;
             // 
             // WorkerPanel
             // 
@@ -182,6 +212,8 @@ namespace Acciopus.WorkerPanelForms
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,5 +232,7 @@ namespace Acciopus.WorkerPanelForms
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

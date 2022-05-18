@@ -91,7 +91,20 @@ namespace Acciopus
 
         public static void FillDataGrid(String Sql, String TableName, DataGridView DGV)
         {
+
             SqlDataAdapter adapter = new SqlDataAdapter(Sql, sqlConnection);
+            DataSet ds = new DataSet();
+            sqlConnection.Open();
+            adapter.Fill(ds, TableName);
+            DGV.DataSource = ds.Tables[TableName];
+            sqlConnection.Close();
+
+        }
+
+        public static void FillDataGrid(SqlCommand Sql, String TableName, DataGridView DGV)
+        {
+            Sql.Connection = sqlConnection;
+            SqlDataAdapter adapter = new SqlDataAdapter(Sql);
             DataSet ds = new DataSet();
             sqlConnection.Open();
             adapter.Fill(ds, TableName);
