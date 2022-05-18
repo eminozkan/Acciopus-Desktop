@@ -214,7 +214,7 @@ namespace Acciopus
                 }
                 else if(usr.getType() == User.UserType.Worker)
                 {
-                    WorkerPanel panel = new WorkerPanel();
+                    WorkerPanelForms.WorkerPanel panel = new WorkerPanelForms.WorkerPanel();
                     panel.setUser(usr) ;
                     panel.Show();
                     this.Hide();

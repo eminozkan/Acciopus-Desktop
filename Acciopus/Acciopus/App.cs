@@ -12,7 +12,7 @@ namespace Acciopus
     class App
     {
         private static SqlConnection sqlConnection = new SqlConnection(Config.Configuration.getConnectionString());
-       
+
 
         public static Boolean TryToLogin(String email, String Password)
         {
@@ -79,8 +79,8 @@ namespace Acciopus
         {
             user.setUserInfo(sqlConnection);
             Session.Session.StartSession(sqlConnection, user);
-            
-            
+
+
         }
 
         public static void StopSession()
@@ -97,6 +97,20 @@ namespace Acciopus
             adapter.Fill(ds, TableName);
             DGV.DataSource = ds.Tables[TableName];
             sqlConnection.Close();
+
+        }
+
+        public static void MakeJobRequest(User.User user, int ilan_id, String Aciklama)
+        {
+            RequestStatements state = User.Request.sendRequest(user, ilan_id, Aciklama);
+            if(state == RequestStatements.Success)
+            {
+                MessageBox.Show("Başvurunuz Gönderildi!");
+            }
+            else
+            {
+                MessageBox.Show("Başvurunuz Gönderilemedi!","Uyarı",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
 
         }
 

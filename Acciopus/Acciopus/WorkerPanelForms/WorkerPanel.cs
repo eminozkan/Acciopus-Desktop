@@ -9,14 +9,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Acciopus
+namespace Acciopus.WorkerPanelForms
 {
     internal partial class WorkerPanel : Form
     {
         private User.User activeUser = new User.User();
         private Boolean isUserMovingTab = false;
-        Point MoveLocation = new Point(); 
-        
+        Point MoveLocation = new Point();
+        private String dataGridView1SqlCommand = "Select ilan_id,ilan_paylasan_id,ilan_baslik,ilan_firma_adi,meslek_adi,ilan_aciklama,ilan_teklif_edilen_maas,ilan_istenen_tecrube_suresi,ilan_tarihi from Is_ilan as t1 INNER JOIN Meslekler as t2 ON t1.ilan_aranan_meslek_id = t2.meslek_id";
         public WorkerPanel()
         {
             InitializeComponent();
@@ -33,6 +33,7 @@ namespace Acciopus
         {
             ArrayList d1ColumnsName = new ArrayList();
             d1ColumnsName.Add("İlan ID");
+            d1ColumnsName.Add("Paylaşan ID");
             d1ColumnsName.Add("İlan Başlığı");
             d1ColumnsName.Add("Firma Adı");
             d1ColumnsName.Add("Aranan Meslek");
@@ -49,11 +50,12 @@ namespace Acciopus
             }
 
             dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].Width = 250;
-            dataGridView1.Columns[2].Width = 100;
-            dataGridView1.Columns[3].Width = 200;
-            dataGridView1.Columns[4].Width = 350;
-            dataGridView1.Columns[7].Width = 123;
+            dataGridView1.Columns[1].Visible = false;
+            dataGridView1.Columns[2].Width = 250;
+            dataGridView1.Columns[3].Width = 100;
+            dataGridView1.Columns[4].Width = 200;
+            dataGridView1.Columns[5].Width = 350;
+            dataGridView1.Columns[8].Width = 123;
 
         }
         
@@ -67,8 +69,8 @@ namespace Acciopus
         private void Mainpanel_Load(object sender, EventArgs e)
         {
             
-            String sqlCommand = "Select ilan_id,ilan_baslik,ilan_firma_adi,meslek_adi,ilan_aciklama,ilan_teklif_edilen_maas,ilan_istenen_tecrube_suresi,ilan_tarihi from Is_ilan as t1 INNER JOIN Meslekler as t2 ON t1.ilan_aranan_meslek_id = t2.meslek_id";
-            App.FillDataGrid(sqlCommand, "Kullanici", dataGridView1);
+  
+            App.FillDataGrid(dataGridView1SqlCommand, "Kullanici", dataGridView1);
             setDataGridView1Settings();
 
 
@@ -122,6 +124,24 @@ namespace Acciopus
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentCell != null)
+            {
+                WorkerPanelForms.RequestJob requestJob = new WorkerPanelForms.RequestJob();
+                requestJob.user = activeUser;
+                requestJob.FirmaAdi = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+                MessageBox.Show(requestJob.FirmaAdi);
+                requestJob.IlanBaslik = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+                requestJob.ilan_id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString());
 
+                requestJob.Show();
+            }
+            else
+            {
+                MessageBox.Show("Lütfen başvuru yapmak istediginiz ilanı seçiniz!");
+            }
+            
+        }
     }
 }

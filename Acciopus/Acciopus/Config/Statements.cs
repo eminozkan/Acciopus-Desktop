@@ -20,4 +20,10 @@ namespace Acciopus
         Fail
     }
 
+    enum RequestStatements
+    {
+        Success,
+        Fail
+    }
+
 }

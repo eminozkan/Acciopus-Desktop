@@ -56,10 +56,17 @@
     <Compile Include="Config\Configuration.cs" />
     <Compile Include="Config\Statements.cs" />
     <Compile Include="Encryption\Encryption.cs" />
-    <Compile Include="WorkerPanel.cs">
+    <Compile Include="User\Request.cs" />
+    <Compile Include="WorkerPanelForms\RequestJob.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WorkerPanel.Designer.cs">
+    <Compile Include="WorkerPanelForms\RequestJob.Designer.cs">
+      <DependentUpon>RequestJob.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerPanelForms\WorkerPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WorkerPanelForms\WorkerPanel.Designer.cs">
       <DependentUpon>WorkerPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -71,7 +78,10 @@
     <EmbeddedResource Include="Acciopus.resx">
       <DependentUpon>Acciopus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="WorkerPanel.resx">
+    <EmbeddedResource Include="WorkerPanelForms\RequestJob.resx">
+      <DependentUpon>RequestJob.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WorkerPanelForms\WorkerPanel.resx">
       <DependentUpon>WorkerPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
