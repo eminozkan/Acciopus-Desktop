@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=22.5.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Cells.22.5.0\lib\net40\Aspose.Cells.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,6 +59,13 @@
     <Compile Include="Config\Configuration.cs" />
     <Compile Include="Config\Statements.cs" />
     <Compile Include="Encryption\Encryption.cs" />
+    <Compile Include="PasswordReset\ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordReset\ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordReset\PasswordFunctions.cs" />
     <Compile Include="User\Request.cs" />
     <Compile Include="WorkerPanelForms\DataGridViewFunctions.cs" />
     <Compile Include="WorkerPanelForms\RequestJob.cs">
@@ -79,6 +89,9 @@
     <EmbeddedResource Include="Acciopus.resx">
       <DependentUpon>Acciopus.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PasswordReset\ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WorkerPanelForms\RequestJob.resx">
       <DependentUpon>RequestJob.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +108,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,10 +135,31 @@
     <None Include="Resources\themecolor.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\1024px-Search_Icon.svg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\password_change.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\worker_bg.bmp" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\kullanicibg1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\1024px-Search_Icon.svg.png" />
+    <None Include="Resources\password_change1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change_pass_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\change_pass_icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bug.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

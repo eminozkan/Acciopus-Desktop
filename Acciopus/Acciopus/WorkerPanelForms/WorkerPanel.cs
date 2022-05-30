@@ -88,6 +88,7 @@ namespace Acciopus.WorkerPanelForms
             App.FillDataGrid(DataGridViewFunctions.getDataGrid2SqlString(), "Basvuru", dataGridView2);
             DataGridViewFunctions.setDataGridView2Settings(dataGridView2);
             comboBox1.SelectedIndex = 0;
+            firma_rb.Checked = true;
         }
 
 
@@ -99,7 +100,7 @@ namespace Acciopus.WorkerPanelForms
                 App.StopSession();
                 Application.Exit();
             }
-           
+
 
         }
 
@@ -124,5 +125,56 @@ namespace Acciopus.WorkerPanelForms
 
         }
 
+        private void ilan_arama_TextChanged(object sender, EventArgs e)
+        {
+            if(ilan_arama.Text.Length > 0)
+            {
+                if (firma_rb.Checked)
+                {
+                    String dataGridView1SearchSql = "Select ilan_id,ilan_paylasan_id,ilan_baslik,ilan_firma_adi,meslek_adi,ilan_aciklama,ilan_teklif_edilen_maas,ilan_istenen_tecrube_suresi,ilan_tarihi from Ilanlar as t1 INNER JOIN Meslekler as t2 ON t1.ilan_aranan_meslek_id = t2.meslek_id where ilan_firma_adi LIKE '%" + ilan_arama.Text + "%'";
+                    SqlCommand search = new SqlCommand(dataGridView1SearchSql);
+                    
+                    App.FillDataGrid(search, "Ilanlar", dataGridView1);
+                }else if (meslek_rb.Checked)
+                {
+                    String dataGridView1SearchSql = "Select ilan_id,ilan_paylasan_id,ilan_baslik,ilan_firma_adi,meslek_adi,ilan_aciklama,ilan_teklif_edilen_maas,ilan_istenen_tecrube_suresi,ilan_tarihi from Ilanlar as t1 INNER JOIN Meslekler as t2 ON t1.ilan_aranan_meslek_id = t2.meslek_id where meslek_adi LIKE '%" + ilan_arama.Text + "%'";
+                    SqlCommand search = new SqlCommand(dataGridView1SearchSql);
+                    
+                    App.FillDataGrid(search, "Ilanlar", dataGridView1);
+                }else if (baslik_rb.Checked)
+                {
+                    String dataGridView1SearchSql = "Select ilan_id,ilan_paylasan_id,ilan_baslik,ilan_firma_adi,meslek_adi,ilan_aciklama,ilan_teklif_edilen_maas,ilan_istenen_tecrube_suresi,ilan_tarihi from Ilanlar as t1 INNER JOIN Meslekler as t2 ON t1.ilan_aranan_meslek_id = t2.meslek_id where ilan_baslik LIKE '%" + ilan_arama.Text +"%'";
+                    SqlCommand search = new SqlCommand(dataGridView1SearchSql);
+                    
+                    App.FillDataGrid(search, "Ilanlar", dataGridView1);
+                }
+                DataGridViewFunctions.setDataGridView1Settings(dataGridView1);
+
+            }
+            else
+            {
+                App.FillDataGrid(DataGridViewFunctions.getDataGrid1SqlString(), "Kullanici", dataGridView1);
+                DataGridViewFunctions.setDataGridView1Settings(dataGridView1);
+            }
+        }
+
+        private void cikis_Click(object sender, EventArgs e)
+        {
+            LogOffStatements state = AskUserToLogOff();
+            if (state == LogOffStatements.UserWantsToQuit)
+            {
+                App.StopSession();
+                Application.Exit();
+            }
+        }
+
+        private void sifre_degis_Click(object sender, EventArgs e)
+        {
+            PasswordReset.ChangePassword newPass = new PasswordReset.ChangePassword();
+            newPass.ID = activeUser.getID();
+
+            newPass.Show();
+
+        }
     }
 }

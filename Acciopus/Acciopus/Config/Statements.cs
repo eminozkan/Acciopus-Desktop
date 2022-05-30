@@ -32,4 +32,17 @@ namespace Acciopus
         UserDoesntWantToQuit
     }
 
+
+    enum OldPasswordStatements
+    {
+        NotSame,
+        Same
+    }
+
+    enum PasswordChangeStatements
+    {
+        Fail,
+        Success
+    }
+
 }

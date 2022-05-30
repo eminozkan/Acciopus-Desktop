@@ -12,9 +12,9 @@ namespace Acciopus.WorkerPanelForms
     class DataGridViewFunctions
     {
 
-        private static String dataGridView1SqlCommand = "Select ilan_id,ilan_paylasan_id,ilan_baslik,ilan_firma_adi,meslek_adi,ilan_aciklama,ilan_teklif_edilen_maas,ilan_istenen_tecrube_suresi,ilan_tarihi from Is_ilan as t1 INNER JOIN Meslekler as t2 ON t1.ilan_aranan_meslek_id = t2.meslek_id";
+        private static String dataGridView1SqlCommand = "Select ilan_id,ilan_paylasan_id,ilan_baslik,ilan_firma_adi,meslek_adi,ilan_aciklama,ilan_teklif_edilen_maas,ilan_istenen_tecrube_suresi,ilan_tarihi from Ilanlar as t1 INNER JOIN Meslekler as t2 ON t1.ilan_aranan_meslek_id = t2.meslek_id";
 
-        private static SqlCommand dataGridView2SqlCommand =new SqlCommand( "Select basvuru_id,ilan_firma_adi,basvuru_aciklama,basvuru_tarihi from Basvuru INNER JOIN Is_ilan ON Basvuru.basvurulan_ilan_id = Is_ilan.ilan_id where basvuru_yapan_id = @p1");
+        private static SqlCommand dataGridView2SqlCommand =new SqlCommand( "Select basvuru_id,ilan_firma_adi,basvuru_aciklama,basvuru_tarihi from Basvuru INNER JOIN Ilanlar ON Basvuru.basvurulan_ilan_id = Ilanlar.ilan_id where basvuru_yapan_id = @p1");
 
 
 
