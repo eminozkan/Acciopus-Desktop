@@ -56,8 +56,27 @@
       <DependentUpon>Acciopus.cs</DependentUpon>
     </Compile>
     <Compile Include="App.cs" />
+    <Compile Include="BugReports\ReportABug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BugReports\ReportABug.Designer.cs">
+      <DependentUpon>ReportABug.cs</DependentUpon>
+    </Compile>
     <Compile Include="Config\Configuration.cs" />
     <Compile Include="Config\Statements.cs" />
+    <Compile Include="EmployerPanelForms\DataGridSettings.cs" />
+    <Compile Include="EmployerPanelForms\EmployerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployerPanelForms\EmployerForm.Designer.cs">
+      <DependentUpon>EmployerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EmployerPanelForms\PostJob.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployerPanelForms\PostJob.Designer.cs">
+      <DependentUpon>PostJob.cs</DependentUpon>
+    </Compile>
     <Compile Include="Encryption\Encryption.cs" />
     <Compile Include="PasswordReset\ChangePassword.cs">
       <SubType>Form</SubType>
@@ -66,7 +85,8 @@
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
     <Compile Include="PasswordReset\PasswordFunctions.cs" />
-    <Compile Include="User\Request.cs" />
+    <Compile Include="Post\ChangeRequestState.cs" />
+    <Compile Include="Post\Request.cs" />
     <Compile Include="WorkerPanelForms\DataGridViewFunctions.cs" />
     <Compile Include="WorkerPanelForms\RequestJob.cs">
       <SubType>Form</SubType>
@@ -88,6 +108,15 @@
     <Compile Include="User\User.cs" />
     <EmbeddedResource Include="Acciopus.resx">
       <DependentUpon>Acciopus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BugReports\ReportABug.resx">
+      <DependentUpon>ReportABug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployerPanelForms\EmployerForm.resx">
+      <DependentUpon>EmployerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployerPanelForms\PostJob.resx">
+      <DependentUpon>PostJob.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PasswordReset\ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
@@ -150,9 +179,6 @@
     <None Include="Resources\password_change1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\change_pass_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\change_pass_icon2.png" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +186,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bug.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ilan_ekle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ilanlar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basvurular.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basvuru_yap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basvuru_tab2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bugreport.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

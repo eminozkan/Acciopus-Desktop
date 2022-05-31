@@ -210,7 +210,10 @@ namespace Acciopus
                 }
                 else if(usr.getType() == User.UserType.Employer)
                 {
-                    MessageBox.Show(usr.getType() + " paneli!");
+                    EmployerPanelForms.EmployerForm employerForm = new EmployerPanelForms.EmployerForm();
+                    employerForm.setUser(usr);
+                    employerForm.Show();
+                    this.Hide();
                 }
                 else if(usr.getType() == User.UserType.Worker)
                 {

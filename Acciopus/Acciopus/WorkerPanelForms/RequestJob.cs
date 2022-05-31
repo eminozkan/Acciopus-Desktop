@@ -47,5 +47,10 @@ namespace Acciopus.WorkerPanelForms
         {
             App.MakeJobRequest(user, ilan_id, richTextBox1.Text);
         }
+
+        private void RequestJob_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
     }
 }

@@ -148,6 +148,7 @@ namespace Acciopus.WorkerPanelForms
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RequestJob";
             this.Text = "RequestJob";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RequestJob_FormClosing);
             this.Load += new System.EventHandler(this.RequestJob_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

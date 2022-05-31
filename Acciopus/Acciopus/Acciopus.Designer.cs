@@ -102,7 +102,7 @@ namespace Acciopus
             this.giris.Controls.Add(this.giris_button);
             this.giris.Controls.Add(this.password);
             this.giris.Controls.Add(this.email);
-            this.giris.Location = new System.Drawing.Point(1006, 64);
+            this.giris.Location = new System.Drawing.Point(1011, 43);
             this.giris.Name = "giris";
             this.giris.Size = new System.Drawing.Size(600, 500);
             this.giris.TabIndex = 1;
@@ -349,7 +349,7 @@ namespace Acciopus
             this.anasayfa.Controls.Add(this.label3);
             this.anasayfa.Controls.Add(this.label2);
             this.anasayfa.Controls.Add(this.label1);
-            this.anasayfa.Location = new System.Drawing.Point(1006, 516);
+            this.anasayfa.Location = new System.Drawing.Point(999, 512);
             this.anasayfa.Name = "anasayfa";
             this.anasayfa.Size = new System.Drawing.Size(600, 500);
             this.anasayfa.TabIndex = 1;
@@ -584,6 +584,7 @@ namespace Acciopus
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Acciopus.Properties.Resources.background_test1;
             this.ClientSize = new System.Drawing.Size(1024, 576);
+            this.Controls.Add(this.anasayfa);
             this.Controls.Add(this.hakkinda);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.giris);
@@ -595,7 +596,6 @@ namespace Acciopus
             this.Controls.Add(this.minimize);
             this.Controls.Add(this.close);
             this.Controls.Add(this.iletisim);
-            this.Controls.Add(this.anasayfa);
             this.Controls.Add(this.activePanel);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

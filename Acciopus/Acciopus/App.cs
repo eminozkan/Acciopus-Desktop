@@ -128,6 +128,49 @@ namespace Acciopus
         }
 
 
+        public static SqlCommandStatements sendSqlCommand(SqlCommand sqlCommand)
+        {
+            SqlCommandStatements result = SqlCommandStatements.Fail;
+            try
+            {
+                sqlCommand.Connection = sqlConnection;
+
+                sqlConnection.Open();
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+                result = SqlCommandStatements.Success;
+            }
+            catch (Exception e)
+            {
+                SqlCommand sendExceptiontoDatabase = new SqlCommand("Insert into Exception (Exception_Message,Exception_DateTime) values(@p1,@p2)", sqlConnection);
+
+                sendExceptiontoDatabase.Parameters.AddWithValue("@p1", e.Message.ToString());
+                sendExceptiontoDatabase.Parameters.AddWithValue("@p2", DateTime.Now);
+                sendExceptiontoDatabase.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+
+
+            return result;
+        }
+
+        public static RequestStatements setRequestStateToApproved(int basvuru_id)
+        {
+            ChangeRequestStatements state = ChangeRequestStatements.Approved;
+            RequestStatements requestState = Post.ChangeRequestState.setRequestState(state, basvuru_id);
+            return requestState;
+            
+        }
+
+        public static RequestStatements setRequestStateToNonApproved(int basvuru_id)
+        {
+            ChangeRequestStatements state = ChangeRequestStatements.NonApproved;
+            RequestStatements requestState  = Post.ChangeRequestState.setRequestState(state, basvuru_id);
+            return requestState;
+        }
+
+
+
     }
 
 

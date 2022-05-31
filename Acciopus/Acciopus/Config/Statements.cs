@@ -45,4 +45,16 @@ namespace Acciopus
         Success
     }
 
+    enum SqlCommandStatements
+    {
+        Success,
+        Fail
+    }
+
+    enum ChangeRequestStatements
+    {
+        NonApproved,
+        Approved
+    }
+
 }

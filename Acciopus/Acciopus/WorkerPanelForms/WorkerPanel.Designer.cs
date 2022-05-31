@@ -35,20 +35,20 @@ namespace Acciopus.WorkerPanelForms
             this.label1 = new System.Windows.Forms.Label();
             this.tabcontrol = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.basvuru = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.baslik_rb = new System.Windows.Forms.RadioButton();
             this.firma_rb = new System.Windows.Forms.RadioButton();
             this.meslek_rb = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ilan_arama = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.ilan_sil = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.basvuru_arama = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -62,6 +62,7 @@ namespace Acciopus.WorkerPanelForms
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -84,15 +85,17 @@ namespace Acciopus.WorkerPanelForms
             this.tabcontrol.SelectedIndex = 0;
             this.tabcontrol.Size = new System.Drawing.Size(1279, 649);
             this.tabcontrol.TabIndex = 1;
+            this.tabcontrol.SelectedIndexChanged += new System.EventHandler(this.tabcontrol_SelectedIndexChanged);
+            this.tabcontrol.TabIndexChanged += new System.EventHandler(this.tabcontrol_TabIndexChanged);
             // 
             // tabPage1
             // 
-            this.tabPage1.BackgroundImage = global::Acciopus.Properties.Resources.themecolor;
-            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tabPage1.BackgroundImage = global::Acciopus.Properties.Resources.basvuru_yap;
+            this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.tabPage1.Controls.Add(this.basvuru);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Controls.Add(this.pictureBox1);
             this.tabPage1.Controls.Add(this.ilan_arama);
-            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -102,6 +105,15 @@ namespace Acciopus.WorkerPanelForms
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "İlanlar";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // basvuru
+            // 
+            this.basvuru.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.basvuru.Location = new System.Drawing.Point(1085, 531);
+            this.basvuru.Name = "basvuru";
+            this.basvuru.Size = new System.Drawing.Size(135, 55);
+            this.basvuru.TabIndex = 9;
+            this.basvuru.Click += new System.EventHandler(this.basvuru_Click);
             // 
             // groupBox1
             // 
@@ -166,16 +178,6 @@ namespace Acciopus.WorkerPanelForms
             this.ilan_arama.TabIndex = 3;
             this.ilan_arama.TextChanged += new System.EventHandler(this.ilan_arama_TextChanged);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1143, 567);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 37);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Başvuru Yap";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // dataGridView1
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
@@ -184,9 +186,9 @@ namespace Acciopus.WorkerPanelForms
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.Color.Salmon;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 98);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 91);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1271, 450);
+            this.dataGridView1.Size = new System.Drawing.Size(1237, 389);
             this.dataGridView1.TabIndex = 1;
             // 
             // panel1
@@ -198,11 +200,11 @@ namespace Acciopus.WorkerPanelForms
             // 
             // tabPage2
             // 
-            this.tabPage2.BackgroundImage = global::Acciopus.Properties.Resources.themecolor;
-            this.tabPage2.Controls.Add(this.textBox3);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.richTextBox1);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.BackgroundImage = global::Acciopus.Properties.Resources.basvuru_tab2;
+            this.tabPage2.Controls.Add(this.ilan_sil);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.pictureBox2);
+            this.tabPage2.Controls.Add(this.basvuru_arama);
             this.tabPage2.Controls.Add(this.dataGridView2);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -212,46 +214,49 @@ namespace Acciopus.WorkerPanelForms
             this.tabPage2.Text = "Başvurularım";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // ilan_sil
             // 
-            this.textBox3.Location = new System.Drawing.Point(850, 141);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(153, 20);
-            this.textBox3.TabIndex = 4;
+            this.ilan_sil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ilan_sil.Location = new System.Drawing.Point(1025, 291);
+            this.ilan_sil.Name = "ilan_sil";
+            this.ilan_sil.Size = new System.Drawing.Size(143, 54);
+            this.ilan_sil.TabIndex = 13;
+            this.ilan_sil.Click += new System.EventHandler(this.ilan_sil_Click);
             // 
-            // textBox2
+            // label2
             // 
-            this.textBox2.Location = new System.Drawing.Point(850, 95);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(153, 20);
-            this.textBox2.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(1039, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 16);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Firma Adı:";
             // 
-            // richTextBox1
+            // pictureBox2
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(850, 198);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(153, 96);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.pictureBox2.BackgroundImage = global::Acciopus.Properties.Resources._1024px_Search_Icon_svg;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(1042, 56);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(29, 26);
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
             // 
-            // comboBox1
+            // basvuru_arama
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Yapılacak İşlemi Seçiniz.",
-            "Başvuruyu Düzelt",
-            "Başvuruyu Sil"});
-            this.comboBox1.Location = new System.Drawing.Point(1044, 198);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(151, 21);
-            this.comboBox1.TabIndex = 1;
+            this.basvuru_arama.Location = new System.Drawing.Point(1078, 59);
+            this.basvuru_arama.Name = "basvuru_arama";
+            this.basvuru_arama.Size = new System.Drawing.Size(134, 20);
+            this.basvuru_arama.TabIndex = 9;
+            this.basvuru_arama.TextChanged += new System.EventHandler(this.basvuru_arama_TextChanged);
             // 
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(20, 57);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(732, 490);
+            this.dataGridView2.Size = new System.Drawing.Size(951, 490);
             this.dataGridView2.TabIndex = 0;
             // 
             // panel2
@@ -259,7 +264,7 @@ namespace Acciopus.WorkerPanelForms
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.Location = new System.Drawing.Point(2, 7);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1076, 56);
+            this.panel2.Size = new System.Drawing.Size(1183, 56);
             this.panel2.TabIndex = 3;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -269,6 +274,7 @@ namespace Acciopus.WorkerPanelForms
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
             this.panel3.ContextMenuStrip = this.contextMenuStrip1;
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel3.Location = new System.Drawing.Point(1210, 3);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(64, 77);
@@ -281,13 +287,13 @@ namespace Acciopus.WorkerPanelForms
             this.cikis,
             this.bugBildir});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(141, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
             // 
             // sifre_degis
             // 
             this.sifre_degis.Image = global::Acciopus.Properties.Resources.change_pass_icon2;
             this.sifre_degis.Name = "sifre_degis";
-            this.sifre_degis.Size = new System.Drawing.Size(140, 22);
+            this.sifre_degis.Size = new System.Drawing.Size(180, 22);
             this.sifre_degis.Text = "Şifre Değiştir";
             this.sifre_degis.Click += new System.EventHandler(this.sifre_degis_Click);
             // 
@@ -295,7 +301,7 @@ namespace Acciopus.WorkerPanelForms
             // 
             this.cikis.Image = global::Acciopus.Properties.Resources.exit_icon;
             this.cikis.Name = "cikis";
-            this.cikis.Size = new System.Drawing.Size(140, 22);
+            this.cikis.Size = new System.Drawing.Size(180, 22);
             this.cikis.Text = "Çıkış Yap!";
             this.cikis.Click += new System.EventHandler(this.cikis_Click);
             // 
@@ -303,8 +309,9 @@ namespace Acciopus.WorkerPanelForms
             // 
             this.bugBildir.Image = global::Acciopus.Properties.Resources.bug;
             this.bugBildir.Name = "bugBildir";
-            this.bugBildir.Size = new System.Drawing.Size(140, 22);
+            this.bugBildir.Size = new System.Drawing.Size(180, 22);
             this.bugBildir.Text = "Hata Bildir!";
+            this.bugBildir.Click += new System.EventHandler(this.bugBildir_Click);
             // 
             // WorkerPanel
             // 
@@ -333,6 +340,7 @@ namespace Acciopus.WorkerPanelForms
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -348,15 +356,10 @@ namespace Acciopus.WorkerPanelForms
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox ilan_arama;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.RadioButton firma_rb;
         private System.Windows.Forms.RadioButton meslek_rb;
         private System.Windows.Forms.RadioButton baslik_rb;
@@ -366,5 +369,10 @@ namespace Acciopus.WorkerPanelForms
         private System.Windows.Forms.ToolStripMenuItem sifre_degis;
         private System.Windows.Forms.ToolStripMenuItem cikis;
         private System.Windows.Forms.ToolStripMenuItem bugBildir;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TextBox basvuru_arama;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel basvuru;
+        private System.Windows.Forms.Panel ilan_sil;
     }
 }
