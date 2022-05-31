@@ -17,3 +17,4 @@ C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.csproj.GenerateR
 C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.csproj.CoreCompileInputs.cache
 C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.exe
 C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.pdb
+C:\Users\root\source\repos\Acciopus\Acciopus\obj\Debug\Acciopus.csproj.AssemblyReference.cache

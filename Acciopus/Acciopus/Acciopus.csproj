@@ -110,11 +110,6 @@
     <Compile Include="Post\ChangeRequestState.cs" />
     <Compile Include="Post\Post.cs" />
     <Compile Include="Post\Request.cs" />
-    <Compile Include="Reports\DataSetForReports.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetForReports.xsd</DependentUpon>
-    </Compile>
     <Compile Include="WorkerPanelForms\DataGridViewFunctions.cs" />
     <Compile Include="WorkerPanelForms\RequestJob.cs">
       <SubType>Form</SubType>
@@ -191,17 +186,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Reports\DataSetForReports.xsc">
-      <DependentUpon>DataSetForReports.xsd</DependentUpon>
-    </None>
-    <None Include="Reports\DataSetForReports.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetForReports.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reports\DataSetForReports.xss">
-      <DependentUpon>DataSetForReports.xsd</DependentUpon>
-    </None>
     <None Include="Resources\background_test1.png" />
   </ItemGroup>
   <ItemGroup>
