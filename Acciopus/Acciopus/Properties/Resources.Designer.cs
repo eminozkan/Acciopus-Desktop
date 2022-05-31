@@ -73,6 +73,66 @@ namespace Acciopus.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
         /// </summary>
+        internal static System.Drawing.Bitmap admin_basvurular {
+            get {
+                object obj = ResourceManager.GetObject("admin_basvurular", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap admin_ilan_duzenle {
+            get {
+                object obj = ResourceManager.GetObject("admin_ilan_duzenle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap admin_ilanlar {
+            get {
+                object obj = ResourceManager.GetObject("admin_ilanlar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap admin_kullanici {
+            get {
+                object obj = ResourceManager.GetObject("admin_kullanici", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap admin_kullanici_ekle {
+            get {
+                object obj = ResourceManager.GetObject("admin_kullanici_ekle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap admin_kullanici_ekle2 {
+            get {
+                object obj = ResourceManager.GetObject("admin_kullanici_ekle2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
         internal static System.Drawing.Bitmap background_test1 {
             get {
                 object obj = ResourceManager.GetObject("background_test1", resourceCulture);
@@ -176,6 +236,16 @@ namespace Acciopus.Properties {
         internal static System.Drawing.Bitmap ilanlar {
             get {
                 object obj = ResourceManager.GetObject("ilanlar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap türünde yerelleştirilmiş bir kaynak arar.
+        /// </summary>
+        internal static System.Drawing.Bitmap img_539706 {
+            get {
+                object obj = ResourceManager.GetObject("img_539706", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

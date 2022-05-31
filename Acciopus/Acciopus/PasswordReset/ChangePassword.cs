@@ -1,5 +1,4 @@
-﻿using Aspose.Cells.Drawing;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;

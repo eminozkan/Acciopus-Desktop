@@ -200,13 +200,13 @@ namespace Acciopus
                 App.StartSession(usr);
                 
                 
-                if(usr.getType() == User.UserType.SystemAdmin)
+
+                if (usr.getType() == User.UserType.Admin)
                 {
-                    MessageBox.Show(usr.getType().ToString() + " paneli!");
-                }
-                else if (usr.getType() == User.UserType.Admin)
-                {
-                    MessageBox.Show(usr.getType() + " paneli!");
+                    AdminPanelForms.AdminPanel admin = new AdminPanelForms.AdminPanel();
+                    admin.setUser(usr);
+                    admin.Show();
+                    this.Hide();
                 }
                 else if(usr.getType() == User.UserType.Employer)
                 {

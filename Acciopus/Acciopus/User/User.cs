@@ -7,7 +7,6 @@ namespace Acciopus.User
     enum UserType
     {
         unassigned,
-        SystemAdmin,
         Admin,
         Worker,
         Employer
@@ -136,11 +135,8 @@ namespace Acciopus.User
 
                 conn.Close();
                 
-                if (Type.Equals("SystemAdmin"))
-                {
-                    this.Type = UserType.SystemAdmin;
-                }
-                else if (Type.Equals("Admin"))
+
+                if (Type.Equals("Admin"))
                 {
                     this.Type = UserType.Admin;
                 }

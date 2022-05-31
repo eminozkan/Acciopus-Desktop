@@ -52,6 +52,31 @@
     <Compile Include="Acciopus.Designer.cs">
       <DependentUpon>Acciopus.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminPanelForms\AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanelForms\AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanelForms\AdminPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanelForms\AdminPanel.Designer.cs">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanelForms\DataGridViewFunctions.cs" />
+    <Compile Include="AdminPanelForms\PostJobFromAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanelForms\PostJobFromAdmin.Designer.cs">
+      <DependentUpon>PostJobFromAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPanelForms\EditPost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPanelForms\EditPost.Designer.cs">
+      <DependentUpon>EditPost.cs</DependentUpon>
+    </Compile>
     <Compile Include="App.cs" />
     <Compile Include="BugReports\ReportABug.cs">
       <SubType>Form</SubType>
@@ -83,7 +108,13 @@
     </Compile>
     <Compile Include="PasswordReset\PasswordFunctions.cs" />
     <Compile Include="Post\ChangeRequestState.cs" />
+    <Compile Include="Post\Post.cs" />
     <Compile Include="Post\Request.cs" />
+    <Compile Include="Reports\DataSetForReports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetForReports.xsd</DependentUpon>
+    </Compile>
     <Compile Include="WorkerPanelForms\DataGridViewFunctions.cs" />
     <Compile Include="WorkerPanelForms\RequestJob.cs">
       <SubType>Form</SubType>
@@ -105,6 +136,18 @@
     <Compile Include="User\User.cs" />
     <EmbeddedResource Include="Acciopus.resx">
       <DependentUpon>Acciopus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanelForms\AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanelForms\AdminPanel.resx">
+      <DependentUpon>AdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanelForms\PostJobFromAdmin.resx">
+      <DependentUpon>PostJobFromAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPanelForms\EditPost.resx">
+      <DependentUpon>EditPost.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BugReports\ReportABug.resx">
       <DependentUpon>ReportABug.cs</DependentUpon>
@@ -148,6 +191,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Reports\DataSetForReports.xsc">
+      <DependentUpon>DataSetForReports.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSetForReports.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetForReports.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSetForReports.xss">
+      <DependentUpon>DataSetForReports.xsd</DependentUpon>
+    </None>
     <None Include="Resources\background_test1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -204,5 +258,27 @@
   <ItemGroup>
     <None Include="Resources\bugreport.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin_kullanici.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin_kullanici_ekle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin_kullanici_ekle2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin_ilanlar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img_539706.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin_ilan_duzenle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\admin_basvurular.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
